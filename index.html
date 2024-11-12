@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thammisetti Sreenivasulu Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .section-content {
+            display: none; /* Hide section content by default */
+        }
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            gap: 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -12,21 +30,21 @@
         <p>Cybersecurity Enthusiast | B.Tech in Computer Science (Cybersecurity)</p>
         <nav>
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" onclick="toggleSection('about')">About</a></li>
+                <li><a href="#skills" onclick="toggleSection('skills')">Skills</a></li>
+                <li><a href="#experience" onclick="toggleSection('experience')">Experience</a></li>
+                <li><a href="#projects" onclick="toggleSection('projects')">Projects</a></li>
+                <li><a href="#contact" onclick="toggleSection('contact')">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="about">
+    <section id="about" class="section-content">
         <h2>About Me</h2>
         <p>B.Tech student specializing in Cybersecurity with a passion for solving complex security challenges. Currently interning at TEMS Tech Solutions, gaining hands-on experience in vulnerability analysis and incident response.</p>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="section-content">
         <h2>Skills</h2>
         <h3>Technical Skills</h3>
         <ul>
@@ -42,7 +60,7 @@
         </ul>
     </section>
 
-    <section id="experience">
+    <section id="experience" class="section-content">
         <h2>Experience</h2>
         <div class="job">
             <h3>Cyber Security Intern</h3>
@@ -56,7 +74,7 @@
         </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="section-content">
         <h2>Projects</h2>
         <div class="project">
             <h3>Caesar Cipher</h3>
@@ -72,7 +90,7 @@
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="section-content">
         <h2>Contact Me</h2>
         <p>If you have any questions or want to connect, feel free to reach out!</p>
         
@@ -88,12 +106,25 @@
                 <img src="images/github-icon.png" alt="GitHub" /> GitHub
             </a>
         </div>   
+    </section>
 
     <footer>
         <p>&copy; 2024 Thammisetti Sreenivasulu</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const sections = document.querySelectorAll('.section-content');
+            
+            sections.forEach(sec => {
+                if (sec !== section) {
+                    sec.style.display = 'none';
+                }
+            });
+
+            section.style.display = section.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
